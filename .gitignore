@@ -2,3 +2,5 @@ run
 runq
 *.bin
 .venv/
+__pycache__/
+out15M/

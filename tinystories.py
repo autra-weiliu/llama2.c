@@ -20,7 +20,7 @@ from tqdm import tqdm
 
 from tokenizer import Tokenizer
 
-DATA_CACHE_DIR = "data"
+DATA_CACHE_DIR = "/work01/weiliu/tinystories"
 
 def download_file(url: str, fname: str, chunk_size=1024):
     """Helper function to download a file from a given url"""
