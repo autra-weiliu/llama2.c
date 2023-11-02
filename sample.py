@@ -2,7 +2,6 @@
 Sample from the trained model with PyTorch
 """
 import os
-import pickle
 from contextlib import nullcontext
 import torch
 from model import ModelArgs, Transformer
@@ -11,10 +10,11 @@ from tokenizer import Tokenizer
 from tinystories import get_tokenizer_model_path
 
 # -----------------------------------------------------------------------------
+prompt_filepath = os.path.join(os.path.dirname(__file__), 'py_prompt_test.txt')
 checkpoint = 'out/ckpt.pt'
-start = "" # or "<|endoftext|>" or etc. Can also specify a file, use as: "FILE:prompt.txt"
-num_samples = 1 # number of samples to draw
-max_new_tokens = 100 # number of tokens generated in each sample
+start = f"FILE:{prompt_filepath}" # or "<|endoftext|>" or etc. Can also specify a file, use as: "FILE:prompt.txt"
+num_samples = 2 # number of samples to draw
+max_new_tokens = 50 # number of tokens generated in each sample
 temperature = 1.0 # 1.0 = no change, < 1.0 = less random, > 1.0 = more random, in predictions
 top_k = 300 # retain only the top_k most likely tokens, clamp others to have 0 probability
 tokenizer = "" # override the tokenizer model path
